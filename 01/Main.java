@@ -28,6 +28,7 @@ public class Main {
 				}
 				line = reader.readLine();
 			}
+			reader.close();
 			return Collections.max(cals);
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
@@ -64,6 +65,7 @@ public class Main {
 					topThree[2] = contender;
 				}
 			}
+			reader.close();
 			return topThree[0] + topThree[1] + topThree[2];
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());

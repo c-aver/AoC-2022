@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Main {
 	public static void main(String[] args) {
@@ -52,6 +50,7 @@ public class Main {
 					score += 6;
 				line = reader.readLine();
 			}
+			reader.close();
 			return score;
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
@@ -111,12 +110,13 @@ public class Main {
 				score += myChoice;
 				if (myChoice == opponentChoice)
 					score += 3;
-				else if(   ((myChoice == 1) && (opponentChoice == 3))
+				else if(((myChoice == 1) && (opponentChoice == 3))
 					|| ((myChoice == 2) && (opponentChoice == 1))
 					|| ((myChoice == 3) && (opponentChoice == 2)))
 					score += 6;
 				line = reader.readLine();
 			}
+			reader.close();
 			return score;
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
