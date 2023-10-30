@@ -23,7 +23,7 @@ public class Main {
         
         ArrayList<String> lines = readLinesFromFile(filePath);
         ArrayList<List<Point>> paths = new ArrayList<>();
-        int minX, maxX, minY, maxY, offset;
+        int maxX, maxY, offset;
         {
             for (String line : lines) {
                 paths.add(parsePath(line));
@@ -33,7 +33,7 @@ public class Main {
             offset = -limits[0] + limits[3] + 2;
             paths = offsetX(paths, offset);
             limits = findLimits(paths);
-            minX = limits[0]; maxX = limits[1]; minY = limits[2]; maxY = limits[3];
+            maxX = limits[1]; maxY = limits[3];
         }
         System.gc();
 
@@ -50,7 +50,7 @@ public class Main {
         System.out.println("Part 2: " + part2(map, new Point(500 + offset, 0)));
     }
 
-    private static int part1(char[][] map, Point sandOrigin) {
+    public static int part1(char[][] map, Point sandOrigin) {
         int result = 0;
         while (dropSand(map, sandOrigin)) {
             result += 1;
